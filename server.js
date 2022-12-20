@@ -16,7 +16,7 @@ app.get('/download', async (req, res) => {
   }).pipe(fileStream);
 
   fileStream.on('finish', () => {
-    res.send(`http://${req.headers.host}/download-file/${fileName}`);
+    res.send({ "mp3": `http://${req.headers.host}/download-file/${fileName}` });
 
     // Use axios to delete the file after 15 minutes
     setTimeout(() => {
